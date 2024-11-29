@@ -1,0 +1,708 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffebee;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.envelope {
+  width: 280px;
+  height: 180px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope-front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff80ab, #ff4081);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.heart-seal {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.flying-heart {
+  font-size: 60px;
+  animation: flyUpAndSpin 1.5s ease-out;
+}
+
+@keyframes flyUpAndSpin {
+  0% {
+    transform: translateY(100vh) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(50vh) scale(1.2) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.question-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  height: 60vh;
+  max-width: 600px;
+}
+
+.buttons {
+  margin: 20px 0;
+  height: 200px;
+  position: relative;
+  width: 100%;
+}
+
+.yes-button,
+.no-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+
+.yes-button {
+  background-color: #ff4081;
+  color: white;
+}
+
+.no-button {
+  background-color: #9e9e9e;
+  color: white;
+  transition: all 0.1s;
+  position: absolute;
+  z-index: 100;
+}
+
+.yes-button:hover {
+  transform: scale(1.1);
+}
+
+.final-message {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 15px 0;
+  color: #d81b60;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 0 10px;
+}
+
+p {
+  color: #c2185b;
+  font-size: 1.2rem;
+}
+
+.heart {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+  background-color: #ff4081;
+  margin: 0 auto 50px auto;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #ff4081;
+  border-radius: 50%;
+}
+
+.heart:before {
+  left: -50px;
+}
+
+.heart:after {
+  top: -50px;
+}
+
+.heart.animate {
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  14% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  28% {
+    transform: rotate(45deg) scale(1);
+  }
+  42% {
+    transform: rotate(45deg) scale(1.3);
+  }
+  70% {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.icon.animate {
+  animation: iconBounce 2s infinite;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 64, 129, 0.5),
+    0 0 20px rgba(255, 64, 129, 0.3), 0 0 30px rgba(255, 64, 129, 0.2);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.5),
+      0 0 20px rgba(255, 64, 129, 0.3), 0 0 30px rgba(255, 64, 129, 0.2);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 64, 129, 0.7),
+      0 0 30px rgba(255, 64, 129, 0.5), 0 0 40px rgba(255, 64, 129, 0.3);
+  }
+}
+
+.typing-text {
+  overflow: hidden;
+  border-right: none;
+  white-space: normal;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ff4081;
+  }
+}
+
+.sparkle {
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(130%) saturate(150%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Радужный текст */
+.rainbow-text {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #8000ff,
+    #ff0080
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 8s linear infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Магический эффект при наведении */
+.magical-hover {
+  transition: all 0.3s;
+}
+
+.magical-hover:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-5deg)
+    scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 64, 129, 0.3),
+    0 0 40px rgba(255, 64, 129, 0.2);
+}
+
+/* Интенсивное сверкание */
+.sparkle-intense {
+  animation: sparkleIntense 1.5s infinite;
+}
+
+@keyframes sparkleIntense {
+  0%,
+  100% {
+    filter: brightness(100%) contrast(100%);
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    filter: brightness(150%) contrast(150%);
+    transform: scale(1.2) rotate(15deg);
+  }
+}
+
+/* Покачивание сердечка */
+.wobble {
+  animation: wobble 2s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Летающие сердечки */
+.floating-heart {
+  position: fixed;
+  animation: floatHeart 10s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+  font-size: 16px;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Взрыв сердечек */
+.hearts-burst {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.burst-heart {
+  position: absolute;
+  animation: burstOut 1.5s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes burstOut {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+        calc(-50% + ${Math.random() * 200 - 100}px),
+        calc(-50% + ${Math.random() * 200 - 100}px)
+      )
+      scale(1);
+    opacity: 0;
+  }
+}
+
+/* Магический текст */
+.magical-text {
+  background: linear-gradient(45deg, #ff4081, #ff80ab);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #d81b60;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  animation: magicalGlow 2s ease-in-out infinite;
+}
+
+@keyframes magicalGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba(255, 64, 129, 0.5))
+      drop-shadow(0 0 5px rgba(255, 64, 129, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(255, 64, 129, 0.8))
+      drop-shadow(0 0 10px rgba(255, 64, 129, 0.5));
+  }
+}
+
+/* Улучшенный конфетти */
+.confetti-piece {
+  animation: confettiRain 5s ease-out infinite;
+}
+
+@keyframes confettiRain {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
+
+.love-messages {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.love-messages p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #d81b60;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+.delay-2 {
+  animation-delay: 2s;
+}
+.delay-3 {
+  animation-delay: 3s;
+}
+.delay-4 {
+  animation-delay: 4s;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Улучшенный взрыв сердечек */
+.burst-heart {
+  position: absolute;
+  animation: improvedBurst 2s ease-out forwards;
+  animation-delay: var(--delay);
+  transform-origin: center;
+}
+
+@keyframes improvedBurst {
+  0% {
+    transform: rotate(var(--angle)) translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateY(100px) scale(1.5);
+  }
+  100% {
+    transform: rotate(var(--angle)) translateY(200px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Улучшенное свечение текста */
+.magical-text {
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff8000,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #8000ff,
+    #ff0080
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 300% 300%;
+  animation: gradientFlow 8s ease infinite, magicalGlow 2s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Добавляем плавающие звездочки */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  animation: floatingStar 3s ease-in-out infinite;
+}
+
+@keyframes floatingStar {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+/* Улучшенный эффект пульсации */
+.pulse-intense {
+  animation: pulseIntense 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseIntense {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: brightness(100%) contrast(100%);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(150%) contrast(120%);
+  }
+}
+
+/* Добавляем эффект блеска */
+.sparkle-text {
+  position: relative;
+}
+
+.sparkle-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Медиа-запросы для разных размеров экрана */
+@media (min-width: 768px) {
+  .love-messages p {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .floating-heart {
+    font-size: 20px;
+  }
+}
+
+/* Улучшенная читаемость для радужного текста */
+.rainbow-text {
+  color: #d81b60;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+/* Контейнер для вопроса */
+.question-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Стили для текста с градиентом */
+.magical-text {
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.magical-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  color: #d81b60;
+  z-index: 1;
+}
