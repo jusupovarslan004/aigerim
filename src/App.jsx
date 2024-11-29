@@ -28,11 +28,17 @@ const App = () => {
     const buttonWidth = 100;
     const buttonHeight = 50;
 
-    const maxX = containerRect.width - buttonWidth;
-    const maxY = containerRect.height - buttonHeight;
+    const maxX = Math.min(
+      containerRect.width - buttonWidth,
+      window.innerWidth - buttonWidth - 40
+    );
+    const maxY = Math.min(
+      containerRect.height - buttonHeight,
+      window.innerHeight - buttonHeight - 40
+    );
 
-    const newX = Math.random() * maxX;
-    const newY = Math.random() * maxY;
+    const newX = Math.max(0, Math.min(Math.random() * maxX, maxX));
+    const newY = Math.max(0, Math.min(Math.random() * maxY, maxY));
 
     setNoButtonPosition({ x: newX, y: newY });
   };
@@ -43,6 +49,15 @@ const App = () => {
     setShowFinalMessage(true);
     setTimeout(() => setShowConfetti(false), 5000);
   };
+
+  useEffect(() => {
+    const noButton = document.querySelector(".no-button");
+    if (noButton) {
+      noButton.addEventListener("touchstart", handleNoButtonHover);
+      return () =>
+        noButton.removeEventListener("touchstart", handleNoButtonHover);
+    }
+  }, []);
 
   return (
     <div className="container">
